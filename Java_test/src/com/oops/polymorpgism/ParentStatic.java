@@ -19,7 +19,12 @@ public  class ParentStatic {
 	
  	}
 	
-
+  public  void m1(){
+	  
+	  System.out.println("parent static method");
+  }
 	
 	
 }
+
+ 

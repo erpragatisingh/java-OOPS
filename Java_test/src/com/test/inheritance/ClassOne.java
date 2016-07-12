@@ -6,6 +6,14 @@ public class ClassOne {
 		System.out.println("constracror for ClassOne");
 		
 	}
+	ClassOne(int a){
+		System.out.println("constracror for ClassOne");
+		
+	}
+	ClassOne(int a, int b){
+		System.out.println("constracror for ClassOne");
+		
+	}
 	
   public void setValues(int b){
 

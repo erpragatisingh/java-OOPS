@@ -1,6 +1,10 @@
 package com.test.inheritance;
 
 public class ClassTwo extends ClassOne {
+	
+	
+	
+	
  int p=0;
 	public ClassTwo() {
 		System.out.println("constracror for ClassTwo");
