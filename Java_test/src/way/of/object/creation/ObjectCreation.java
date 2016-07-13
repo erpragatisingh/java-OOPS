@@ -19,12 +19,16 @@ public class ObjectCreation {
 	}
 	
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
    //       Named approach for create object
 		ObjectCreation creation =   new ObjectCreation();
 		ObjectCreation creation3 =  new ObjectCreation(37);
 		ObjectCreation creation1 =  new ObjectCreation(12,34);
 		ObjectCreation creation2 =  new ObjectCreation(34,56,78);
+		// second 
+		 Object createdObj=Class.forName(args[0]).newInstance();
+		
+		System.out.println("objcreated for - >"+createdObj.getClass().getSimpleName());
 		
 		// name less approach for create object
 		
