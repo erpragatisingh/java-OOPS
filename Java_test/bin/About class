@@ -1,0 +1,25 @@
+Class contains major 5(Five) Elements
+
+1) variable ---------- Three type of Variable 
+					  1 ) local variable ( local access only like var in method)
+					  2) static variable ( Accssable by class name)
+					  3) instance variable( class level variable that have globle access)
+
+2) Method  ---------- Two type of Method
+					  
+					  1) instance Method  
+					  2) Static method   (method defined with static keyword)					   
+
+3)Static block        block with static keyword
+                      ie.   static{  } 		it execute first before contractor loading			  
+          
+4)Instance Block      Block with {// instance block } only    
+                      it execute after static block  if contain                  
+                   
+                   
+5) constructor   Type of constructor 
+                  system defined  
+                           1) default constructor 
+                           
+                 User defined constructor    2)empty constructor 
+                                             3)parameterised constructor                      

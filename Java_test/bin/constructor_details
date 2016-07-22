@@ -1,0 +1,365 @@
+Rules to create constructor in Java
+.........................................
+1) Default constructor  // its empty with empty implementation it has 0 arg 
+2) User define constructor
+
+
+1) class name and constructor name same
+2) constructor not allowed return type
+3) constructor are able to take parameter 
+
+Advantage of constructor :-    
+
+1) use to write business logic and it execute only when create obj
+
+2) use to initialization var during obj creation 
+
+
+
+
+Examples:-
+
+................ Ex one ...........
+
+public class DemoOne {
+// instance method
+	void m1(){
+		System.out.println("Instance Method m1");
+	}
+	
+//	DemoOne(){  when user not create any one constructor compiler
+//	            generate 0 org constructor with empty implementation
+//	            there is no body. and run time execute by compiler
+//	          
+//              constructor helps to create obj	
+//	}
+	
+	public static void main(String[] args) {
+
+		DemoOne demoOne=new DemoOne();
+		demoOne.m1();
+		
+		// DemoOne = class name
+		// demoOne = refrance var
+		// =       = assignement operator
+		// new    = used to care Object
+		// DemoOne() = DemoOne class constructor
+	}
+}
+.................................Ex Two( 2 ) ..............................
+
+public class DemoTwo {
+
+	public DemoTwo() {
+		System.out.println("User defined empty constructor");
+	}
+	public DemoTwo(int a) {
+		System.out.println("User defined 1- arg constructor");
+	}
+	public DemoTwo(int a, String s) {
+		System.out.println("User defined 2-arg constructor");
+	}
+	public static void main(String[] args) {
+
+		DemoTwo two = new DemoTwo();
+		DemoTwo two1 = new DemoTwo(12);
+		DemoTwo two2 = new DemoTwo(30,"Pragati");
+	} 
+	// Result 
+//	User defined empty constructor
+//	User defined 1- arg constructor
+//	User defined 2-arg constructor
+}
+
+
+..................  Ex Three( 3 ) ........................................
+
+public class DemoThree {
+
+	public DemoThree(int a) {}
+
+	public static void main(String[] args) {
+		
+		DemoThree three = new DemoThree();
+		// if there is no constuctor compile will generator else will not we 
+		  // have to use created only
+
+	}
+	// Result 
+//	Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+//		The constructor DemoThree() is undefined
+//
+//		at demo.constructor.DemoThree.main(DemoThree.java:9)
+}
+
+//////////////////  Ex Four (4) /////////////////////////////////////
+
+// Advantage of constructor 25 % 
+// advantage no - 1 
+public class ExFour {
+	public ExFour() {
+		System.out.println("cons logic here");
+	}
+	public static void main(String[] args) {
+		ExFour four =new ExFour();
+		             // constructor exe while creation of obj
+	}
+}
+..............  Ex five (5)....................
+public class ExFive {
+int a;
+String s;
+float f;
+
+   void m1(){
+	   System.out.println("Method m1");
+	   System.out.println( a);
+	   System.out.println(s);
+	   System.out.println(f);
+		    }
+   
+
+	public static void main(String[] args) {
+		ExFive five = new ExFive();// execute default cons
+		five.m1();
+	}
+
+}
+
+// output will  it will print default values of variable
+//Method m1
+// 0
+// null
+// 0.0
+//
+.............  Ex Five ( 6 ) .......................................
+// Advantage of constructor 50 % 
+public class ExFive {
+	// 
+   int a;  // 0
+   String s; // null
+   float f; // 0.0
+   void m1(){
+	   System.out.println(a);
+		System.out.println(s);
+		System.out.println(f);
+   }
+   
+   // user defined cons
+	public ExFive() {
+		a=120;
+		s="Pragati";
+		f=23.45f;
+	}
+
+	public static void main(String[] args) {
+		ExFive five = new ExFive();// execute default cons
+		five.m1();
+	}
+
+}
+// Steps of execution 
+// output will
+// 120
+// Pragati
+// 23.45
+
+...........................  Ex seven ( 7 ) ................................................
+
+package demo.constructor;
+
+public class Emp {
+  String name;
+  int sal;
+	public Emp() {
+		name="Pragati";
+		sal=67;
+		
+	}
+
+	void display(){
+		System.out.println("Emap name is "+name);
+		System.out.println("Emap Sal is "+sal);
+	}
+	
+	public static void main(String[] args) {
+		
+		Emp emp = new Emp();
+		emp.display();
+		Emp emp2 = new Emp();
+		emp2.display();
+		
+
+	}
+
+}
+// problem both emp have same val but  it should be different 
+//		Emap name is Pragati
+//		Emap Sal is 67
+//		Emap name is Pragati
+//		Emap Sal is 67
+
+// To Solve this problem use constructor  ex is below
+
+
+.......................  Ex Eight ( 8 ) ...................................................
+package demo.constructor;
+
+public class Emp {
+  String name;
+  int sal;
+	public Emp(String name , int sal) { // local variable
+	// convertion of local variable to instance variable
+		this.name=name;
+		this.sal=sal;
+	}
+	void display(){
+		System.out.println("Emap name is "+name);
+		System.out.println("Emap Sal is "+sal);
+	}
+	public static void main(String[] args) {
+		
+		Emp emp = new Emp("Pragati", 20000);
+		emp.display();
+		Emp emp2 = new Emp("Gaganjeet",2980);
+		emp2.display();
+	}
+
+}
+
+// Problem both emp have same val but  it should be diff
+//		Emap name is Pragati
+//		Emap Sal is 67
+//		Emap name is Pragati
+//		Emap Sal is 67
+
+// To Solve this problem use parameterized  constructor 
+
+// after result is 
+//Emap name is Pragati
+//Emap Sal is 20000
+//Emap name is Gaganjeet
+//Emap Sal is 2980
+
+
+
+/////////////////////  Example 9 ///////////////////////////
+package demo.constructor;
+
+public class UseConstructor {
+// calling one(1) arg by using 0- arg constructor
+	public UseConstructor() {
+		this(20);// will call 1 arg constructor
+		System.out.println("Empty constructor");
+	}
+	public UseConstructor(int a) {
+		this(34, 11); // will call 2 arg constructor
+		System.out.println("single 1-arg constructor");
+	}
+	public UseConstructor(int a, int b) {
+		System.out.println("Two 2-arg constructor");
+	}
+
+	public static void main(String[] args) {
+		
+		UseConstructor constructor= new UseConstructor();
+
+	}
+
+}
+ ////////// Result will be ///////////////
+
+//	Two 2-arg constructor
+//	single 1-arg constructor
+//	Empty constructor
+
+
+////////////////////////  Example 10 ////////////////////////////////////////////////////////
+public class UseConstructorTwo {
+// calling one(1) arg by using 0- arg constructor
+	public UseConstructorTwo() {
+		this(20);// will call 1 arg constructor
+		System.out.println("Empty constructor");
+	}
+	public UseConstructorTwo(int a) {
+		System.out.println("single 1-arg constructor");
+		this(34, 11); // will call 2 arg constructor 
+		// we can not call constructor in second line, Constructor call must be the first 
+		// statement in a constructor
+		                     
+
+	}
+	public UseConstructorTwo(int a, int b) {
+		System.out.println("Two 2-arg constructor");
+	}
+
+	public static void main(String[] args) {
+		
+		UseConstructorTwo constructor= new UseConstructorTwo();
+
+	}
+
+}
+ ////////// Result will be ///////////////
+
+// Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+//	Constructor call must be the first statement in a constructor
+//
+//	at demo.constructor.UseConstructorTwo.<init>(UseConstructorTwo.java:12)
+//	at demo.constructor.UseConstructorTwo.<init>(UseConstructorTwo.java:7)
+//	at demo.constructor.UseConstructorTwo.main(UseConstructorTwo.java:21)
+//
+.........................  Example 11 ....................................
+
+// One constructor can call only one constructor. 
+
+public class UseConstructorTwo {
+// calling one(1) arg by using 0- arg constructor
+	public UseConstructorTwo() {
+		this(20);// will call 1 arg constructor             Note :- its not allowed here
+		this(34, 11); // will call 2 arg constructor              One constructor can call only one constructor.
+		System.out.println("Empty constructor");
+	}
+	public UseConstructorTwo(int a) {
+	  this(34, 11); // will call 2 arg constructor 
+		System.out.println("single 1-arg constructor");
+		
+		// we can not call constructor in second line, Constructor call must be the first 
+		// statement in a constructor
+		                     
+
+	}
+	public UseConstructorTwo(int a, int b) {
+		System.out.println("Two 2-arg constructor");
+	}
+
+	public static void main(String[] args) {
+		
+		UseConstructorTwo constructor= new UseConstructorTwo();
+
+	}
+
+}
+ ////////// Result will be ///////////////
+
+// Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+//	Constructor call must be the first statement in a constructor
+//
+//	at demo.constructor.UseConstructorTwo.<init>(UseConstructorTwo.java:12)
+//	at demo.constructor.UseConstructorTwo.<init>(UseConstructorTwo.java:7)
+//	at demo.constructor.UseConstructorTwo.main(UseConstructorTwo.java:21)
+//
+
+..........................  Example 12 ..............................................................
+
+
+
+
+
+
+
+
+
+
+
+

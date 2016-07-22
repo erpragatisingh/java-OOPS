@@ -1,0 +1,11 @@
+Way to create object in java
+
+
+1) by using new keyword
+
+2)  instance factory method
+3)  static factory method
+4) Pattern factory method 
+5) newInstance method
+6)Cloaning process
+7) desearialization process
